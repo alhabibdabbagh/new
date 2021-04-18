@@ -7,11 +7,22 @@ import java.util.Scanner;
  * @on 18.04.2021 01:50
  */
 public class Main {
+    private  static UcakRezervasyonSistemi thyRezervasyonSistemi;
     public static void main(String[] args) {
-
-        UcakRezervasyonSistemi thyRezervasyonSistemi = new TYHRezervasyonSistemi(5);
-
         Scanner input = new Scanner(System.in);
+        System.out.println("bizim sistemiz hoş geldiniz, hangi şirket tercih edersiniz 0 THY ise 1 PEGASUS ise  ");
+         int x =input.nextInt();//TODO clean code and check if integer
+        while (x>1){
+            System.out.println("yanlış girdiniz bir daha girin");
+            x =input.nextInt();
+        }
+        if(x==0){
+             thyRezervasyonSistemi = new TYHRezervasyonSistemi(5);
+        }else {
+             thyRezervasyonSistemi = new PegasusRezervasyonSistemi(5);
+        }
+
+
 
         String inputKey = "c";
 

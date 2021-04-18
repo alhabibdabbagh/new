@@ -13,6 +13,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
     private int businessOrEkonomik;
     private int businessKoltukNumber;
     private int EkonomikKoltukNumber;
+    private boolean[] thyListBoolean;
     private Scanner input = new Scanner(System.in);
 
     public TYHRezervasyonSistemi(int koltuSayisi) {
@@ -28,7 +29,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
     }
 
 
-    private boolean[] thyListBoolean;
+
 
     public boolean bosMu() {
 
