@@ -1,22 +1,23 @@
 package com.company;
 
 
-
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class PegasusRezervasyonSistemi extends UcakRezervasyonSistemi {
 
-   public PegasusRezervasyonSistemi(){
+    public PegasusRezervasyonSistemi() {
 
-   }
+    }
+
     private int businessOrEkonomik;
     private int businessKoltukNumber;
     private int EkonomikKoltukNumber;
     private boolean[] thyListBoolean;
     private Scanner input = new Scanner(System.in);
 
-    public PegasusRezervasyonSistemi(int koltukSayisi){
+    public PegasusRezervasyonSistemi(int koltukSayisi) {
         if (koltukSayisi < 10) {
             System.out.println("10'dan az olamaz 10 atamıştır ");
             koltukSayisi = 10;
@@ -27,6 +28,7 @@ public class PegasusRezervasyonSistemi extends UcakRezervasyonSistemi {
         }
 
     }
+
     public boolean bosMu() {
 
         for (int i = 0; i < thyListBoolean.length; i++) {
@@ -105,8 +107,56 @@ public class PegasusRezervasyonSistemi extends UcakRezervasyonSistemi {
     public void rezervasyonAl() {
         System.out.println("Pegasus REZERVASYON Sistemine hoş geldiniz ! ");
         System.out.println("Business class uçmak için 0'a basınız , ekonomik class uçmak için 1'a basınız ");
-        businessOrEkonomik = input.nextInt();
-        if(!Integer.class.isInstance(businessOrEkonomik)){
+        /*      setBusinessOrEkonomik(Optional.ofNullable(input.nextInt()).map(integer -> integer::se)); */
+        boolean c = true;
+        String ss = "";
+        while (c) {//TODO names must be more clean
+            try {
+                ss = input.next();
+                if (Integer.class.isInstance(Integer.parseInt(ss))) {
+                    setBusinessOrEkonomik(Integer.parseInt(ss));
+                    if (getBusinessOrEkonomik() < 2) {
+                        c = false;
+                    } else {
+                        System.out.println("1 yada 0 seçiniz lütfen");
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("düzgün gir sayıyı");
+            }
+        }
+
+   /* Optional.ofNullable(input.nextInt()).ifPresentOrElse(this::setBusinessKoltukNumber,() -> System.out.println(" yanlış girdiniz"));
+    if(Integer.class.isInstance(getBusinessOrEkonomik())){
+        c=false;
+    }else {
+
+    }*/
+    /* try{
+         if(input.hasNextInt()) {
+             setBusinessKoltukNumber(input.nextInt());
+             c=false;
+         }*//*else{
+             System.out.println("yanliş ");
+             //
+         }*//*
+     }catch (Exception e){
+         System.out.println("yanliş1 ");
+     }
+*//*        if(input.hasNextInt()) {
+            setBusinessKoltukNumber(input.nextInt());
+            c=false;
+        }else{
+            System.out.println("yanliş ");
+            //
+        }*//*
+
+         *//* setBusinessKoltukNumber(input.nextInt());*//*
+         *//*        c=false;*//*
+         */
+
+
+        if (!Integer.class.isInstance(businessOrEkonomik)) {
             System.out.println("girdiğinz sayı doğru değil bir daha giriniz");
         }
         //TODO control the value is it integer
