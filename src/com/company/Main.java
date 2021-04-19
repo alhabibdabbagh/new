@@ -11,11 +11,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("bizim sistemiz hoş geldiniz, hangi şirket tercih edersiniz 0 THY ise 1 PEGASUS ise  ");
-         int x =input.nextInt();//TODO clean code and check if integer
-        while (x>1){
-            System.out.println("yanlış girdiniz bir daha girin");
-            x =input.nextInt();
-        }
+         String y =input.next();//TODO clean code and check if integer
+        var x=10;
+        do {
+            try {
+                x = Integer.parseInt(y);
+            } catch (Exception e) {
+                System.out.println("lütfen geçerli bir sayı giriniz");
+                y = input.next();
+            }if(x>1) {
+                System.out.println("lütfen geçerli bir sayı giriniz");
+                y = input.next();
+            }
+        } while (x>1);
+
         if(x==0){
              thyRezervasyonSistemi = new TYHRezervasyonSistemi(5);
         }else {
