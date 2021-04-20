@@ -9,7 +9,7 @@ public class PegasusRezervasyonSistemi extends UcakRezervasyonSistemi {
 
     public PegasusRezervasyonSistemi() {
 
-    }
+    }//TODO what will happen here !!
 
     private int businessOrEkonomik;
     private int businessKoltukNumber;
@@ -156,34 +156,34 @@ public class PegasusRezervasyonSistemi extends UcakRezervasyonSistemi {
          */
 
 
-        if (!Integer.class.isInstance(businessOrEkonomik)) {
+        if (!Integer.class.isInstance(getBusinessOrEkonomik())) {
             System.out.println("girdiğinz sayı doğru değil bir daha giriniz");
         }
         //TODO control the value is it integer
-        if (businessOrEkonomik == 0) {
+        if (getBusinessOrEkonomik() == 0) {
             if (businessDoluMu()) {
                 System.out.println("business kalmadı ");
             } else {
                 System.out.println("aşağıdaki koltuklarından seçin ");
                 yazdirBusiness();
-                businessKoltukNumber = input.nextInt();
-                if (businessKoltukNumber > 0 && businessKoltukNumber < 6) {
-                    cikar(businessKoltukNumber);
+                setBusinessKoltukNumber(input.nextInt());
+                if (getBusinessKoltukNumber() > 0 && getBusinessKoltukNumber() < 6) {
+                    cikar(getBusinessKoltukNumber());
                 } else {
                     System.out.println("yanlış");
                 }
 
             }
 
-        } else if (businessOrEkonomik == 1) {
+        } else if (getBusinessOrEkonomik() == 1) {
             if (ekonomiDoluMu()) {
                 System.out.println("ekommik Dolu");
             } else {
                 System.out.println("aşağıdaki koltuklarından seçin ");
                 yazdirEkonomik();
-                EkonomikKoltukNumber = input.nextInt();
-                if (EkonomikKoltukNumber > 5 && EkonomikKoltukNumber < thyListBoolean.length + 1) {
-                    cikar(EkonomikKoltukNumber);
+                setEkonomikKoltukNumber(input.nextInt());
+                if (getEkonomikKoltukNumber() > 5 && getEkonomikKoltukNumber() < thyListBoolean.length + 1) {
+                    cikar(getEkonomikKoltukNumber());
                 } else {
                     System.out.println("yanlış");
                 }

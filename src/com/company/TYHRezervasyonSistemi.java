@@ -33,7 +33,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
 
     public boolean bosMu() {
 
-        for (int i = 0; i < thyListBoolean.length; i++) {
+        for (int i = 0; i < getThyListBoolean().length; i++) {
             if (thyListBoolean[i] == false) return true;
 
         }
@@ -42,7 +42,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
     }
 
     public void yazdir() {
-        for (int i = 0; i < thyListBoolean.length; i++) {
+        for (int i = 0; i < getThyListBoolean().length; i++) {
             if (thyListBoolean[i] == false)
                 System.out.print((i + 1) + " ");
         }
@@ -56,7 +56,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
     }
 
     public void yazdirEkonomik() {
-        for (int i = 5; i < thyListBoolean.length; i++) {
+        for (int i = 5; i < getThyListBoolean().length; i++) {
             if (thyListBoolean[i] == false)
                 System.out.print((i + 1) + " ");
         }
@@ -66,7 +66,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
 
     public boolean cikar(int silenecekSayi) {
         boolean isFull = false;
-        if (silenecekSayi < thyListBoolean.length + 1) {
+        if (silenecekSayi < getThyListBoolean().length + 1) {
             if (thyListBoolean[silenecekSayi - 1] == false) {
                 System.out.println("rezervasyon alındı");
                 thyListBoolean[silenecekSayi - 1] = true;
@@ -84,7 +84,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
 
     public boolean ekonomiDoluMu() {
         boolean isFull = true;
-        for (int i = 6; i < thyListBoolean.length; i++) {
+        for (int i = 6; i < getThyListBoolean().length; i++) {
             if (thyListBoolean[i] == false) {
 
                 isFull = false;
@@ -110,40 +110,40 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
         System.out.println("Business class uçmak için 0'a basınız , ekonomik class uçmak için 1'a basınız ");
 
       try {
-          businessOrEkonomik = input.nextInt();
+          setBusinessOrEkonomik(input.nextInt());
       }catch (Exception e){
           System.out.println("girdiğinz sayı doğru değil bir daha giriniz");
           input.nextInt();
-          businessOrEkonomik = input.nextInt();
+          setBusinessOrEkonomik(input.nextInt());
       }
     /*    if(!Integer.class.isInstance(businessOrEkonomik)){
             System.out.println("girdiğinz sayı doğru değil bir daha giriniz");
         }*/
         //TODO control the value is it integer
-        if (businessOrEkonomik == 0) {
+        if (getBusinessOrEkonomik() == 0) {
             if (businessDoluMu()) {
                 System.out.println("business kalmadı ");
             } else {
                 System.out.println("aşağıdaki koltuklarından seçin ");
                 yazdirBusiness();
-                businessKoltukNumber = input.nextInt();
-                if (businessKoltukNumber > 0 && businessKoltukNumber < 6) {
-                    cikar(businessKoltukNumber);
+                setBusinessKoltukNumber(input.nextInt());
+                if (getBusinessKoltukNumber() > 0 && getBusinessKoltukNumber() < 6) {
+                    cikar(getBusinessKoltukNumber());
                 } else {
                     System.out.println("yanlış");
                 }
 
             }
 
-        } else if (businessOrEkonomik == 1) {
+        } else if (getBusinessOrEkonomik() == 1) {
             if (ekonomiDoluMu()) {
                 System.out.println("ekommik Dolu");
             } else {
                 System.out.println("aşağıdaki koltuklarından seçin ");
                 yazdirEkonomik();
-                EkonomikKoltukNumber = input.nextInt();
-                if (EkonomikKoltukNumber > 5 && EkonomikKoltukNumber < thyListBoolean.length + 1) {
-                    cikar(EkonomikKoltukNumber);
+                setEkonomikKoltukNumber(input.nextInt());
+                if (getEkonomikKoltukNumber() > 5 && getEkonomikKoltukNumber() < getThyListBoolean().length + 1) {
+                    cikar(getEkonomikKoltukNumber());
                 } else {
                     System.out.println("yanlış");
                 }

@@ -36,7 +36,7 @@ public abstract class UcakRezervasyonSistemi {
     }
     public boolean ucakDoluMu() {
         return false;
-    }
+    }//TODO this method must be use !!!
 
     public  abstract void rezervasyonAl();
 }
