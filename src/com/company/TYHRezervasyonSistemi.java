@@ -77,7 +77,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
                 return isFull;
             }
         } else {
-            System.out.println("Oyle bi koltuk yok 0");
+            System.out.println("Öyle bir koltuk yok 0");
             return isFull;
         }
     }
@@ -150,7 +150,7 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
 
             }
 
-        } else {
+        } else {//TODO change to while loops
             System.out.println("hata seçim");
         }
 

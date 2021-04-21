@@ -8,6 +8,8 @@ import java.util.Scanner;
  */
 public class Main {
     private  static UcakRezervasyonSistemi thyRezervasyonSistemi;
+
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("bizim sistemiz hoş geldiniz, hangi şirket tercih edersiniz 0 THY ise 1 PEGASUS ise  ");
@@ -31,11 +33,9 @@ public class Main {
              thyRezervasyonSistemi = new PegasusRezervasyonSistemi(5);
         }
 
-
-
         String inputKey = "c";
 
-        while (inputKey.equals("c") || inputKey.equals("C")) {
+        while (inputKey.equalsIgnoreCase("c")) {
             thyRezervasyonSistemi.rezervasyonAl();
             System.out.println("\nDevam etmek için c'ye, çıkmak için herhangi başka bir tuşa basınız ");
             inputKey = input.next();
