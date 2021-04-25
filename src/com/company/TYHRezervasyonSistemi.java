@@ -108,14 +108,25 @@ public class TYHRezervasyonSistemi extends UcakRezervasyonSistemi {
     public void rezervasyonAl() {
         System.out.println("THY REZERVASYON Sistemine hoş geldiniz ! ");
         System.out.println("Business class uçmak için 0'a basınız , ekonomik class uçmak için 1'a basınız ");
-
+        boolean isNumberRong = true;
+        String inputCheck = "";
+        while (isNumberRong) {//TODO names must be more clean
       try {
-          setBusinessOrEkonomik(input.nextInt());
+          inputCheck = input.next();
+          if (Integer.class.isInstance(Integer.parseInt(inputCheck))) {
+              setBusinessOrEkonomik(Integer.parseInt(inputCheck));
+              if (getBusinessOrEkonomik() < 2) {
+                  isNumberRong = false;
+              } else {
+                  System.out.println("1 yada 0 seçiniz lütfen");
+              }
+          }
+
       }catch (Exception e){
           System.out.println("girdiğinz sayı doğru değil bir daha giriniz");
-          input.nextInt();
-          setBusinessOrEkonomik(input.nextInt());
+
       }
+        }
     /*    if(!Integer.class.isInstance(businessOrEkonomik)){
             System.out.println("girdiğinz sayı doğru değil bir daha giriniz");
         }*/
